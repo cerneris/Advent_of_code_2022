@@ -1,4 +1,4 @@
-def day2_part1():
+def day2_part1(file):
     win_combinations = {
         "A" : "Y",
         "B" : "Z",
@@ -23,7 +23,7 @@ def day2_part1():
         "loss" : "0"
     }
     game_points = 0
-    with open("day2.txt", "r") as f:
+    with open(file, "r") as f:
         data = f.readlines()
     for row in data:
         data_split = row.split(" ")
@@ -43,7 +43,7 @@ def day2_part1():
             game_points += int(points[you])
     print("Day 2 part 1 points: {}".format(game_points))
 
-def day2_part2():
+def day2_part2(file):
     game_outcomes = {
         "X" : "loss",
         "Y" : "draw",
@@ -73,7 +73,7 @@ def day2_part2():
         "loss" : "0"
     }
     game_points = 0
-    with open("day2.txt", "r") as f:
+    with open(file, "r") as f:
         data = f.readlines()
     for row in data:
         data_split = row.split(" ")
@@ -96,5 +96,5 @@ def day2_part2():
             # print("Enemy choice: {}. You need to lose so you choose {}.".format(enemy, choice))
     print("Day 2 part 2 points: {}".format(game_points))
 
-day2_part1()
-day2_part2()
+day2_part1("day2.txt")
+day2_part2("day2.txt")
