@@ -26,10 +26,8 @@ def day4_part2(file):
         in_range = False
         for value in range_1:
             if value in range_2:
-                in_range = True
+                overlap += 1
                 break
-        if in_range:
-            overlap += 1
                 
     print("Overlapping sections part 2: {}".format(overlap))
 
