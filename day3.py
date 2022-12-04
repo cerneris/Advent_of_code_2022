@@ -30,6 +30,6 @@ def day3_part2(file):
                     break
         cur_line += 3
     print("The sum of priorities: {}".format(priority_sum))
-    
+
 day3_part1("day3.txt")
 day3_part2("day3.txt")
