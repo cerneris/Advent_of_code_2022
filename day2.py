@@ -1,4 +1,10 @@
-def day2_part1(file):
+import time
+def read_file(file):
+    with open(file, "r") as f:
+        data = f.readlines()
+    return data
+
+def day2_part1(data):
     win_combinations = {
         "A" : "Y",
         "B" : "Z",
@@ -23,8 +29,6 @@ def day2_part1(file):
         "loss" : "0"
     }
     game_points = 0
-    with open(file, "r") as f:
-        data = f.readlines()
     for row in data:
         data_split = row.split(" ")
         enemy = data_split[0].strip()
@@ -43,7 +47,7 @@ def day2_part1(file):
             game_points += int(points[you])
     print("Day 2 part 1 points: {}".format(game_points))
 
-def day2_part2(file):
+def day2_part2(data):
     game_outcomes = {
         "X" : "loss",
         "Y" : "draw",
@@ -73,8 +77,6 @@ def day2_part2(file):
         "loss" : "0"
     }
     game_points = 0
-    with open(file, "r") as f:
-        data = f.readlines()
     for row in data:
         data_split = row.split(" ")
         enemy = data_split[0].strip()
@@ -96,5 +98,9 @@ def day2_part2(file):
             # print("Enemy choice: {}. You need to lose so you choose {}.".format(enemy, choice))
     print("Day 2 part 2 points: {}".format(game_points))
 
-day2_part1("day2.txt")
-day2_part2("day2.txt")
+data = read_file("day2.txt")
+day2_part1(data)
+start = time.perf_counter_ns()
+day2_part2(data)
+end = time.perf_counter_ns() - start
+print(end)
